@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'flight/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'flight/navbar.html' %}
+    <br>
+
+    <h1>Airline Companies List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Airline Company ID</th>
+                <th>Airline Company Name</th>
+                <th>Airline Company Country ID</th>
+                <th>Airline Company User ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for company in companies %}
+            <tr>
+                <td>{{ company.id }}</td>
+                <td>{{ company.name }}</td>
+                <td>{{ company.country_id.id }}</td>
+                <td>{{ company.user_id.id }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

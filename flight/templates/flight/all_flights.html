@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'flight/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'flight/navbar.html' %}
+    <br>
+    <h1>Flights List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Airline Company ID</th>
+                <th>Origin Country ID</th>
+                <th>Destination Country ID</th>
+                <th>Departure Time</th>
+                <th>Landing Time</th>
+                <th>Remaining Tickets</th>
+                <th>Buy Ticket</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for flight in flights %}
+            <tr>
+                <td>{{ flight.id }}</td>
+                <td>{{ flight.airline_company_id.name }}</td>
+                <td>{{ flight.origin_country_id.name }}</td>
+                <td>{{ flight.destination_country_id.name }}</td>
+                <td>{{ flight.departure_time }}</td>
+                <td>{{ flight.landing_time }}</td>
+                <td>{{ flight.remaining_tickets }}</td>
+                <td>
+                    <form method="post" action="{% url 'buy_ticket' flight.id %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="flight_id" value="{{ flight.id }}">
+                        <button type="submit">Buy</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+

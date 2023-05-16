@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'flight/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'flight/navbar.html' %}
+    <br>
+
+    <h1>Add New Country</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="country_name">Country Name:</label>
+        <input type="text" id="country_name" name="country_name">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

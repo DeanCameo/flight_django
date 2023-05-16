@@ -1,0 +1,9 @@
+1. install VSCode
+2. install Python
+3. open the project folder in VSCode
+4. create virtual environment: python3 -m venv venv 
+                               source venv/bin/activate
+5. install all required packages (requirements.txt)
+6. start the Django project by running the following command: python manage.py runserver
+7. start the React project by running the following command: npm start
+8. go to http://127.0.0.1:8000/flight/ and have fun

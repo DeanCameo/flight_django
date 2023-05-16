@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'flight/style.css' %}">
+    <title>Log In</title>
+</head>
+<body>
+
+    <h2>Login</h2>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Login</button>
+    </form>
+    <br>
+    <h3>Dont Have Account ?</h3>
+    <a href="http://127.0.0.1:8000/flight/register/">Register</a><br>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'flight/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'flight/navbar.html' %}
+    <br>
+
+    <h2>Customer facade</h2>
+    <a href="http://127.0.0.1:8000/flight/update_customer/">Update Customer</a><br>
+    <a href="http://127.0.0.1:8000/flight/add_ticket/">Add Ticket</a><br>
+    <a href="http://127.0.0.1:8000/flight/remove_ticket/">Remove Ticket</a><br>
+    <a href="http://127.0.0.1:8000/flight/get_my_tickets/">Get My Tickets</a><br>
+    <br>
+    
+    <a href="http://127.0.0.1:8000/flight/all_flights/">All Flights</a><br>
+    <a href="http://127.0.0.1:8000/flight/get_flight_by_id/">Get Flight By ID</a><br>
+    <a href="http://127.0.0.1:8000/flight/get_flights_by_parameters/">Get Flight By Parameters</a><br>
+    <a href="http://127.0.0.1:8000/flight/all_airline_companies/">All Airline Companies</a><br>
+    <a href="http://127.0.0.1:8000/flight/get_airline_by_id/">Get Airline Company By ID</a><br>
+    <a href="http://127.0.0.1:8000/flight/get_airline_by_param/">Get Airline Company By Parameters</a><br>
+    <a href="http://127.0.0.1:8000/flight/all_countries/">Get All Countries</a><br>
+    <a href="http://127.0.0.1:8000/flight/get_country_by_id/">Get Country By ID</a><br>
+    <br>
+    <a href="http://127.0.0.1:3000/client/">API</a>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'flight/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'flight/navbar.html' %}
+    <br>
+
+    <h1>Remove Airline Company</h1>
+    <form method="POST">
+      {% csrf_token %}
+
+      <label for="airline_company_id">Airline Company:</label>
+      <select id="airline_company_id" name="airline_company_id" required>
+        <option value="" disabled selected>Select a Company</option>
+        {% for company in companies %}
+          <option value="{{ company.id }}">{{ company.name }}</option>
+        {% endfor %}
+      </select>
+      <br>
+      <button type="submit">Remove Company</button>
+    </form>
+</body>
+</html>

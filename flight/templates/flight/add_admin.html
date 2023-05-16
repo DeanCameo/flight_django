@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'flight/style.css' %}">
+    <title>Add Admin</title>
+</head>
+<body>
+    {% include 'flight/navbar.html' %}
+    <br>
+
+    <h1>Add Administrator</h1>
+    <form method="POST">
+      {% csrf_token %}
+      <label for="first_name">First Name:</label>
+      <input type="text" id="first_name" name="first_name" required>
+      <label for="last_name">Last Name:</label>
+      <input type="text" id="last_name" name="last_name" required>
+      <br>
+      <label for="user_id">User ID:</label>
+      <select id="user_id" name="user_id" required>
+        <option value="" disabled selected>Select a user</option>
+        {% for user in users %}
+          <option value="{{ user.id }}">{{ user.username }}</option>
+        {% endfor %}
+      </select>
+      <br>
+      <button type="submit">Add Administrator</button>
+    </form>
+</body>
+</html>

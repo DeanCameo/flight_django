@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'flight/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'flight/navbar.html' %}
+    <br>
+
+    <h1>Update Customer</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+        <label for="customer">Select a customer:</label>
+        <select id="customer" name="customer">
+            {% for customer in customers %}
+            <option value="{{ customer.id }}">{{ customer.first_name }} {{ customer.last_name }}</option>
+            {% endfor %}
+        </select>
+        </div>
+        <div>
+        <label for="parameter">Select a Parameter to update:</label>
+        <select id="parameter" name="parameter">
+            <option value="first_name">First Name</option>
+            <option value="last_name">Last Name</option>
+            <option value="address">Address</option>
+            <option value="phone_number">Phone Number</option>
+            <option value="credit_card_number">Credit Card Number</option>
+        </select>
+        </div>
+        <div>
+        <label for="new_value">New Value:</label>
+        <input id="new_value" name="new_value" type="text">
+        </div>
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>
